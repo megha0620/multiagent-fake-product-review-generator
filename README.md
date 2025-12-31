@@ -13,7 +13,7 @@ The system evaluates reviews from multiple perspectives (credibility, authentici
 
 4) Structured input via text file
 
-Final decision with confidence score and action
+5) Final decision with confidence score and action
 
 🧩 Agents Overview
 
