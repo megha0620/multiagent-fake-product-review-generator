@@ -45,6 +45,7 @@ Final decision with confidence score and action
 └── README.md
 
 📝 Input Format (input.txt)
+
 [REVIEWER_INFO]
 User has written 50 reviews with mostly positive feedback.
 
@@ -57,26 +58,25 @@ Order ID available. Purchase verified.
 ⚙️ Installation & Setup
 
 1️⃣ Clone the Repository
-git clone https://github.com/your-username/multi-agent-review-validator.git
-cd multi-agent-review-validator
+    git clone https://github.com/your-username/multi-agent-review-validator.git
+    cd multi-agent-review-validator
 
 2️⃣ Create Virtual Environment (Optional)
-python -m venv venv
-source venv/bin/activate   # Windows: venv\Scripts\activate
+    python -m venv venv
+    source venv/bin/activate   # Windows: venv\Scripts\activate
 
 3️⃣ Install Dependencies
-pip install -r requirements.txt
+    pip install -r requirements.txt
 
 4️⃣ Set Environment Variables
-
-Create a .env file:
-
-GOOGLE_API_KEY=your_google_api_key_here
+    Create a .env file:
+    GOOGLE_API_KEY=your_google_api_key_here
 
 ▶️ Running the Project
-python main.py
+    python main.py
 
 ✅ Sample Output
+
 {
   "final_decision": "APPROVE",
   "confidence": 97,
@@ -86,7 +86,11 @@ python main.py
 🧠 Tech Stack
 
 Python
+
 LangGraph
+
 LangChain
+
 Google Gemini (ChatGoogleGenerativeAI)
+
 dotenv
