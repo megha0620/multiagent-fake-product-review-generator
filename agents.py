@@ -17,21 +17,29 @@ def reviewer_credibility_agent(state):
         REVIEWER_CREDIBILITY_PROMPT +
         f"\n\nInput:\n{state['reviewer_info']}"
     )
-    return {"reviewer_result": response.content}
-
+    return {
+        **state,
+        "reviewer_result": result
+    }
 def content_authenticity_agent(state):
     response = llm.invoke(
         CONTENT_AUTHENTICITY_PROMPT +
         f"\n\nReview:\n{state['review_text']}"
     )
-    return {"content_result": response.content}
+    return {
+        **state,
+        "content_result": result
+    }
 
 def purchase_verification_agent(state):
     response = llm.invoke(
         PURCHASE_VERIFICATION_PROMPT +
         f"\n\nInput:\n{state['purchase_info']}"
     )
-    return {"purchase_result": response.content}
+    return {
+        **state,
+        "purchase_result": result
+    }
 
 def final_decision_agent(state):
     combined_input = f"""
@@ -47,4 +55,7 @@ def final_decision_agent(state):
     response = llm.invoke(
         FINAL_DECISION_PROMPT + combined_input
     )
-    return {"final_result": response.content}
+    return {
+        **state,
+        "final_result": result
+    }

@@ -14,6 +14,14 @@ class ReviewState(dict):
 def input_node(state: ReviewState):
     return state
 
+from typing import TypedDict
+
+class AgentState(TypedDict):
+    review_text: str
+    purchase_info: str
+    final_decision: str
+
+
 
 def load_input_from_file(file_path="input.txt"):
     with open(file_path, "r") as f:
@@ -68,9 +76,20 @@ graph.add_edge("final_agent", END)
 app = graph.compile()
 
 # ----------- TEST INPUT -----------
-input_state = load_input_from_file("input.txt")
+#input_state = load_input_from_file("input.txt")
+
+input_state = {
+    "reviewer_info": "",
+    "review_text": "",
+    "purchase_info": "",
+    "final_decision": "",
+}
+
+input_state.update(load_input_from_file("input.txt"))
+
 
 result = app.invoke(input_state)
 
 print("\nFINAL SYSTEM OUTPUT:\n")
-print(result["final_result"])
+print(result["final_decision"])
+
