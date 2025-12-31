@@ -8,38 +8,33 @@ FINAL_DECISION_PROMPT = prompts.FINAL_DECISION_PROMPT
 
 # Gemini LLM
 llm = ChatGoogleGenerativeAI(
-    model="gemini-1.5-pro",
-    temperature=0
+    model="gemini-flash-latest", 
+    temperature=0,
+    max_retries=6,         
+    timeout=60,
 )
 
 def reviewer_credibility_agent(state):
+    # print("STATE",state)
     response = llm.invoke(
         REVIEWER_CREDIBILITY_PROMPT +
         f"\n\nInput:\n{state['reviewer_info']}"
     )
-    return {
-        **state,
-        "reviewer_result": result
-    }
+    return {"reviewer_result": response.content}
+
 def content_authenticity_agent(state):
     response = llm.invoke(
         CONTENT_AUTHENTICITY_PROMPT +
         f"\n\nReview:\n{state['review_text']}"
     )
-    return {
-        **state,
-        "content_result": result
-    }
+    return {"content_result": response.content}
 
 def purchase_verification_agent(state):
     response = llm.invoke(
         PURCHASE_VERIFICATION_PROMPT +
         f"\n\nInput:\n{state['purchase_info']}"
     )
-    return {
-        **state,
-        "purchase_result": result
-    }
+    return {"purchase_result": response.content}
 
 def final_decision_agent(state):
     combined_input = f"""
@@ -55,7 +50,4 @@ def final_decision_agent(state):
     response = llm.invoke(
         FINAL_DECISION_PROMPT + combined_input
     )
-    return {
-        **state,
-        "final_result": result
-    }
+    return {"final_result": response.content}
