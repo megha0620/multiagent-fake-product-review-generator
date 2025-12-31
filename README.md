@@ -3,6 +3,7 @@
 This project implements a multi-agent review validation system using LangGraph and Google Gemini (Generative AI) to analyze and decide whether a product review should be approved or rejected.
 The system evaluates reviews from multiple perspectives (credibility, authenticity, and purchase verification) and then makes a final decision using a dedicated decision agent.
 
+
 🚀 Features
 
 1) Multi-Agent Architecture using LangGraph
@@ -14,6 +15,7 @@ The system evaluates reviews from multiple perspectives (credibility, authentici
 4) Structured input via text file
 
 5) Final decision with confidence score and action
+
 
 🧩 Agents Overview
 
@@ -28,8 +30,10 @@ The system evaluates reviews from multiple perspectives (credibility, authentici
 
 4) Final Decision Agent
    Aggregates all agent outputs and produces the final verdict
+   
 
 🗂️ Project Structure
+
 ├── main.py            # LangGraph workflow and execution
 
 ├── agents.py          # All agent definitions
@@ -44,16 +48,18 @@ The system evaluates reviews from multiple perspectives (credibility, authentici
 
 └── README.md
 
+
 📝 Input Format (input.txt)
 
-[REVIEWER_INFO]
-User has written 50 reviews with mostly positive feedback.
+[REVIEWER_INFO]  
+ User has written 50 reviews with mostly positive feedback.
 
 [REVIEW_TEXT]
-This product exceeded my expectations. Highly recommended!
+ This product exceeded my expectations. Highly recommended!
 
 [PURCHASE_INFO]
-Order ID available. Purchase verified.
+ Order ID available. Purchase verified.
+ 
 
 ⚙️ Installation & Setup
 
@@ -74,14 +80,19 @@ Order ID available. Purchase verified.
 
 ▶️ Running the Project
     python main.py
+    
 
 ✅ Sample Output
 
 {
   "final_decision": "APPROVE",
+  
   "confidence": 97,
+  
   "action": "Allow review, may boost ranking"
+  
 }
+
 
 🧠 Tech Stack
 
