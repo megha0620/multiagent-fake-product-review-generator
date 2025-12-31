@@ -31,11 +31,17 @@ Final decision with confidence score and action
 
 🗂️ Project Structure
 ├── main.py            # LangGraph workflow and execution
+
 ├── agents.py          # All agent definitions
+
 ├── prompts.py         # Prompt templates for agents
+
 ├── input.txt          # Review input file
+
 ├── .env               # API keys (not committed)
+
 ├── requirements.txt
+
 └── README.md
 
 📝 Input Format (input.txt)
